@@ -22,6 +22,7 @@ const CardWrapper = ({ issue, status, height, width, color, bgColor, text, desc 
                 flexDirection: "row",
                 alignItems: "flex-start",
                 gap: 1.5,
+                ml: 0.3
             }}
         >
             {/* Left: Image */}

@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import Navbar from '../components/Navbar.jsx';
 import CardWrapper from '../components/CardWrapper.jsx';
 import ResultCard from '../components/ResultCard.jsx';
+import MapBox from '../components/MapBox.jsx';
 import { Box, Paper, } from "@mui/material";
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
 import 'react-perfect-scrollbar/dist/css/styles.css';
 
-const sampleData = Array.from({ length: 135 }, (_, i) => ({ id: i + 1 }));
 const Home = () => {
     const [collapsed, setCollapsed] = useState(false);
 
@@ -124,6 +124,15 @@ const Home = () => {
         },
     ];
 
+    const statusList = [
+        { id: 1, status: "ระบบรับข้อมูลแล้ว", borderL: '3px solid red' },
+        { id: 2, status: "เจ้าหน้าที่ตรวจสอบ", borderL: '3px solid yellow' },
+        { id: 3, status: "ส่งต่อให้หน่วยงาน", borderL: '3px solid pink' },
+        { id: 4, status: "หน่วยงานกำลังดำเนินการ", borderL: '3px solid blue' },
+        { id: 5, status: "ดำเนินการเสร็จสิ้น", borderL: '3px solid green' },
+        { id: 6, status: "ไม่สามารถดำเนินการได้", borderL: '3px solid purple' },
+    ]
+
     return (
         <Box
             display="flex"
@@ -158,12 +167,12 @@ const Home = () => {
             <Paper
                 sx={{
                     flex: collapsed ? "0 0 63.7%" : "0 0 50%",
-                    p: 2,
+                    // p: 2,
                     boxShadow: 3,
                     borderRadius: 4,
                 }}
             >
-                {/* <MapComponent />yar */}
+                <MapBox statusList={statusList} collapsed={collapsed} />
             </Paper>
 
             <Paper

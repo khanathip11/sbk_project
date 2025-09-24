@@ -2,7 +2,7 @@ import React from 'react'
 import { Typography } from '@mui/material';
 
 const TextDescription = ({ desc, color = '#555', align = 'left' }) => {
-    const displayText = desc.length > 40 ? desc.slice(0, 40) + '...' : desc;
+    const displayText = desc.length > 35 ? desc.slice(0, 35) + '...' : desc;
     return (
         <Typography
             variant="body2"

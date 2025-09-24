@@ -204,6 +204,7 @@ const Home = () => {
                     ))}
                 </Box>
             </Paper>
+            console.log("Hello from mac os")
         </Box >
     );
 }

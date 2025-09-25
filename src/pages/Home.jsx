@@ -14,7 +14,8 @@ const Home = () => {
     const cardsData = [
         {
             id: 1,
-            issue: "ปัญหายาเสพติด 15",
+            issue: "ปัญหายาเสพติด",
+            count: '15',
             status: "ระบบรับข้อมูลแล้ว",
             imageSrc: "/images/1.jpg",
             bgColor: "#F0F0F0",
@@ -24,7 +25,8 @@ const Home = () => {
         },
         {
             id: 2,
-            issue: "ความปลอดภัยในชีวิตและทรัพย์สิน 12",
+            issue: "ความปลอดภัยในชีวิตและทรัพย์สิน",
+            count: '12',
             status: "เจ้าหน้าที่ตรวจสอบ",
             imageSrc: "/images/2.jpg",
             bgColor: "#E3F2FD",
@@ -34,7 +36,8 @@ const Home = () => {
         },
         {
             id: 3,
-            issue: "ความมั่นคงพื้นที่ชายแดน 10",
+            issue: "ความมั่นคงพื้นที่ชายแดน",
+            count: '10',
             status: "ส่งต่อให้หน่วยงาน",
             imageSrc: "/images/3.jpg",
             bgColor: "#FFF3E0",
@@ -44,7 +47,8 @@ const Home = () => {
         },
         {
             id: 4,
-            issue: "ความมั่นคงพื้นที่ชายแดน จชต. 8",
+            issue: "ความมั่นคงพื้นที่ชายแดน จชต.",
+            count: '8',
             status: "หน่วยงานกำลังดำเนินการ",
             imageSrc: "/images/4.jpg",
             bgColor: "#E8F5E9",
@@ -54,7 +58,8 @@ const Home = () => {
         },
         {
             id: 5,
-            issue: "การก่อการร้ายและก่ออาชญากรรมข้ามชาติ 7",
+            issue: "การก่อการร้ายและก่ออาชญากรรมข้ามชาติ",
+            count: '7',
             status: "ดำเนินการเสร็จสิ้น",
             imageSrc: "/images/5.jpg",
             bgColor: "#F1F8E9",
@@ -64,7 +69,8 @@ const Home = () => {
         },
         {
             id: 6,
-            issue: "การค้ามนุษย์ 6",
+            issue: "การค้ามนุษย์",
+            count: '6',
             status: "ไม่สามารถดำเนินการได้",
             imageSrc: "/images/6.jpg",
             bgColor: "#FFEBEE",
@@ -74,7 +80,8 @@ const Home = () => {
         },
         {
             id: 7,
-            issue: "แรงงานต่างด้าว 6",
+            issue: "แรงงานต่างด้าว",
+            count: '6',
             status: "ระบบรับข้อมูลแล้ว",
             imageSrc: "/images/7.jpg",
             bgColor: "#ECEFF1",
@@ -84,7 +91,8 @@ const Home = () => {
         },
         {
             id: 8,
-            issue: "การละเมิดสถาบันหลักของชาติ 5",
+            issue: "การละเมิดสถาบันหลักของชาติ",
+            count: '5',
             status: "เจ้าหน้าที่ตรวจสอบ",
             imageSrc: "/images/8.jpg",
             bgColor: "#E3F2FD",
@@ -94,7 +102,8 @@ const Home = () => {
         },
         {
             id: 9,
-            issue: "อุทกภัย 5",
+            issue: "อุทกภัย",
+            count: '5',
             status: "ส่งต่อให้หน่วยงาน",
             imageSrc: "/images/9.jpg",
             bgColor: "#FFF3E0",
@@ -104,7 +113,8 @@ const Home = () => {
         },
         {
             id: 10,
-            issue: "อัคคีภัย 3",
+            issue: "อัคคีภัย",
+            count: '3',
             status: "หน่วยงานกำลังดำเนินการ",
             imageSrc: "/images/10.jpg",
             bgColor: "#E8F5E9",
@@ -114,7 +124,8 @@ const Home = () => {
         },
         {
             id: 11,
-            issue: "ธรรมชาติและสิ่งแวดล้อม 3",
+            issue: "ธรรมชาติและสิ่งแวดล้อม",
+            count: '3',
             status: "ดำเนินการเสร็จสิ้น",
             imageSrc: "/images/11.jpg",
             bgColor: "#F1F8E9",
@@ -133,11 +144,15 @@ const Home = () => {
         { id: 6, status: "ไม่สามารถดำเนินการได้", borderL: '3px solid purple' },
     ]
 
+    const issues = cardsData.map(items => ({
+        issue: items.issue,
+        count: items.count
+    }));
+
     return (
         <Box
             display="flex"
             sx={{
-                // width: '100vw',
                 height: "100vh",
                 bgcolor: "grey.50",
                 px: 2,
@@ -147,7 +162,9 @@ const Home = () => {
         >
             <Paper
                 sx={{
-                    flex: collapsed ? "0 0 6.6%" : "0 0 20%",
+                    flex: collapsed
+                        ? { xs: '0 0 10%', sm: '0 0 12%', md: '0 0 7.3%', lg: '0 0 6.8%', xl: '0 0 4.5%' }
+                        : { xs: '0 0 50%', sm: '0 0 40%', md: '0 0 25%', lg: '0 0 20%', xl: '0 0 18%' },
                     alignItems: 'center',
                     justifyContent: 'center',
                     p: 1.5,
@@ -155,7 +172,7 @@ const Home = () => {
                     boxShadow: 3,
                     borderRadius: 4,
                     transition: "flex 0.3s",
-                    overflowY: "scroll", // ✅ แสดง scroll ตลอดเวลา
+                    overflowY: "scroll", // 
                     "&::-webkit-scrollbar": {
                         width: "6px",
                     },
@@ -166,22 +183,25 @@ const Home = () => {
 
             <Paper
                 sx={{
-                    flex: collapsed ? "0 0 63.7%" : "0 0 50%",
-                    // p: 2,
+                    flex: collapsed
+                        ? { xs: '0 0 10%', sm: '0 0 12%', md: '0 0 62.1%', lg: '0 0 64.9%', xl: '0 0 70%' }
+                        : { xs: '0 0 50%', sm: '0 0 40%', md: '0 0 45.3%', lg: '0 0 51.6%', xl: '0 0 57%' },
                     boxShadow: 3,
                     borderRadius: 4,
                 }}
             >
-                <MapBox statusList={statusList} collapsed={collapsed} />
+                <MapBox statusList={statusList} collapsed={collapsed} issues={issues} />
             </Paper>
 
             <Paper
                 sx={{
-                    flex: "0 0 27.5%",
+                    flex: collapsed
+                        ? { xs: '0 0 10%', sm: '0 0 12%', md: '0 0 27.9%', lg: '0 0 25.9%', xl: '0 0 23.9%' }
+                        : { xs: '0 0 50%', sm: '0 0 40%', md: '0 0 27%', lg: '0 0 26%', xl: '0 0 23.3%' },
                     p: 2,
                     boxShadow: 3,
                     borderRadius: 4,
-                    overflowY: "scroll", // ✅ แสดง scroll ตลอดเวลา
+                    overflowY: "scroll",
                     "&::-webkit-scrollbar": {
                         width: "6px",
                     },
@@ -194,10 +214,8 @@ const Home = () => {
                     },
                 }}
             >
-                {/* Card Result อันบน */}
                 <ResultCard count={120} imgSrc="/images/thailand.jpg" />
 
-                {/* Cards loop */}
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mt: 2 }}>
                     {cardsData.map((card) => (
                         <CardWrapper key={card.id} height="100px" status={card.status} issue={card.issue} color={card.color} bgColor={card.bgColor} text={card.text} desc={card.desc} />

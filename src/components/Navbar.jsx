@@ -97,7 +97,7 @@ const Navbar = ({ collapsed, setCollapsed }) => {
                             {!collapsed && (
                                 <>
                                     <Typography sx={{ mt: collapsed ? '-8px' : '-7px' }}>
-                                        My App
+                                        SBK_Project
                                     </Typography>
 
                                     <Box sx={{ flexGrow: 1 }} />

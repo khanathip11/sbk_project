@@ -10,7 +10,7 @@ const SearchBox = ({ collapsed }) => {
             <Autocomplete
                 freeSolo
                 disableClearable
-                options={["Banana", "Apple", "Orange"]}
+                options={[]}
                 sx={{ flex: 1 }} // ✅ ให้ search box ขยายเอง
                 onInputChange={(event, value) => console.log("Search input:", value)}
                 renderInput={(params) => (

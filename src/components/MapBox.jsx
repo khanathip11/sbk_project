@@ -3,7 +3,7 @@ import { Box, Typography, } from "@mui/material";
 import SearchBox from './SearchBox';
 import StatusMapBox from './StatusMapBox';
 import GraphCard from './GraphCard';
-const MapBox = ({ statusList, collapsed }) => {
+const MapBox = ({ statusList, collapsed, issues }) => {
     return (
         <Box
             sx={{
@@ -30,7 +30,10 @@ const MapBox = ({ statusList, collapsed }) => {
 
             <Box
                 sx={{
-                    width: '40%',
+                    width: collapsed
+                        ? { xs: '10%', sm: '10%', md: '10%', lg: '40%', xl: '30%' }
+                        : { xs: '20%', sm: '20%', md: '25%', lg: '40%', xl: '30%' },
+                    height: '90%',
                     position: "absolute",
                     top: 8,
                     left: 8,
@@ -45,8 +48,8 @@ const MapBox = ({ statusList, collapsed }) => {
                 }}
             >
                 <SearchBox collapsed={collapsed} />
-                <StatusMapBox statusList={statusList} />
-                <GraphCard collapsed={collapsed} />
+                <StatusMapBox statusList={statusList} collapsed={collapsed} />
+                <GraphCard collapsed={collapsed} issues={issues} />
             </Box>
         </Box >
 
